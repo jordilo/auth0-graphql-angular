@@ -1,0 +1,11 @@
+<app-header [title]="appInfo.name"
+            [user]="user$ | async"
+            [isUserLogged]="isUserLogged"
+            (logoutHandler)="logoutHandler()"
+            (loginHandler)="loginHandler()"></app-header>
+<section class="container-fluid">
+    <router-outlet> </router-outlet>
+</section>
+<footer>
+    © {{appInfo.name}} <small>{{appInfo.version}}</small>
+</footer>

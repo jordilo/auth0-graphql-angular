@@ -1,0 +1,39 @@
+<form class="col-md-4 offset-md-4"
+      [formGroup]="signupForm"
+      (ngSubmit)="sendForm()">
+  <img class="rounded mx-auto d-block"
+       src="../assets/logo.svg"
+       width="100"
+       height="100" />
+  <div class="form-group">
+    <label>Email</label>
+    <input class="form-control"
+           type="email"
+           formControlName="email" />
+    <small *ngIf="isEmailEmpty"
+           class="text-danger">Email cannot be empty</small>
+    <small *ngIf="isEmailInvalid"
+           class="text-danger">This field should be a valid email</small>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control"
+           type="password"
+           formControlName="password" />
+    <small *ngIf="isPasswordValid"
+           class="text-danger">Password can contain at least 1 uppercase, 1 lowercase and 1 number</small>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control"
+           type="password"
+           formControlName="passwordRepeat" />
+    <small *ngIf="isSamePassword"
+           class="text-danger">Password confirmation should match with password</small>
+  </div>
+  <div class="form-group">
+    <small class="text-danger">{{error}}</small>
+  </div>
+  <button class="btn btn-primary btn-lg"
+          [disabled]="signupForm.invalid">Sign up</button>
+</form>

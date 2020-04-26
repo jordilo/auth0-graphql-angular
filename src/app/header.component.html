@@ -1,0 +1,45 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand"
+       routerLink="/">
+      <img src="../assets/logo.svg"
+           width="30"
+           height="30"
+           class="d-inline-block align-top"
+           alt="">
+      {{title}}
+    </a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"
+          *ngIf="!isUserLogged">
+        <a class="nav-link">
+          <button type="button"
+                  class="btn btn-outline-light btn-sm"
+                  (click)="login()">Login</button></a>
+      </li>
+      <li class="nav-item dropdown"
+          *ngIf="isUserLogged && user">
+        <a class="nav-link dropdown-toggle"
+           id="navbarDropdown"
+           role="button"
+           data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false">
+          <img [src]="user.picture"
+               width="30"
+               height="30" /> {{user.nickname }}</a>
+        <div class="dropdown-menu dropdown-menu-right text-right"
+             aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"
+             routerLink="/profile"
+             href="#">Profile</a>
+          <a class="dropdown-item">
+            <button id="qsLogoutBtn"
+                    type="button"
+                    class="btn-margin logoutBtn btn btn-danger"
+                    (click)="logout()">Log Out</button></a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>

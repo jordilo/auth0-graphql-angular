@@ -1,0 +1,18 @@
+$footerHeight: 40px;
+
+app-header {
+  position: absolute;
+  width: 100%;
+}
+footer {
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  height: $footerHeight;
+}
+section {
+  padding-top: 80px;
+  min-height: calc(100% - #{$footerHeight});
+}

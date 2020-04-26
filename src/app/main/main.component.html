@@ -1,0 +1,9 @@
+<h1>Hello main!</h1>
+<a *ngIf="isLogged;else login"
+   routerLink="/profile"
+   routerLinkActive="active">See profile</a>
+<ng-template #login>
+  <a [routerLink]="[signinPath]">Signin</a>
+  or
+  <a [routerLink]="[signupPath]">Signup</a>
+</ng-template>
